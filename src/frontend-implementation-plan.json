@@ -1,92 +1,279 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Valentine prompt single-page UI with evasive No and Yes meme reveal",
+  "title": "Kawaii multi-screen Valentine gift experience (frontend-only)",
   "requirements": [
     {
-      "id": "REQ-1",
-      "summary": "Build a single-page Valentine prompt UI with a pink/white romantic theme and exactly two prominent options (Yes/No) sized and laid out for iPad Chrome.",
+      "id": "REQ-6",
+      "summary": "Revamp Screen 1 into a fully responsive kawaii Valentine aesthetic with pastel gradient, heart doodle decorations, rounded corners, soft shadows, and consistent minimal typography.",
       "acceptanceCriteria": [
-        "Landing view shows the question “Will you be my Valentine?” with two buttons labeled “Yes” and “No”.",
-        "Overall styling is clearly romantic and uses a pink/white palette (background, typography, accents).",
-        "Layout is responsive and usable on iPad Chrome in both portrait and landscape."
+        "On mobile and desktop widths, Screen 1 content stays centered and readable without overflow or clipped UI.",
+        "Background uses a pastel pink gradient and includes visible heart doodles/cute decorations.",
+        "UI uses consistently rounded corners and soft shadows across interactive elements (buttons/cards).",
+        "Typography is minimal/clean and consistent across both screens and gift views."
       ],
       "file_operations": [
         {
           "path": "frontend/src/App.tsx",
-          "operation": "create",
-          "description": "Implement a single-screen React view rendering the question and exactly two prominent buttons (“Yes”, “No”) using Tailwind for a pink/white romantic layout optimized for iPad Chrome (portrait/landscape)."
+          "operation": "modify",
+          "description": "Refactor Screen 1 container/layout styling to match the kawaii pastel gradient aesthetic; ensure responsive centering/spacing and shared typography tokens across screens and gifts."
         },
         {
           "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Add/adjust global Valentine theme styles: pastel gradient helpers, heart doodle background layering support, rounded/soft-shadow defaults, and shared animation utilities for smooth/poppy transitions."
+        }
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "summary": "Update Screen 1 content: add “14 FEB” calendar icon, bunny/heart sticker visuals near heading, and set centered copy to exactly the specified two-line text.",
+      "acceptanceCriteria": [
+        "A “14 FEB” calendar icon is visible in a top corner on Screen 1 and remains well-positioned on mobile.",
+        "At least two sticker-style visuals (bunny/heart) appear near the heading and do not overlap the main text on mobile.",
+        "Main centered text matches exactly: first line “Hey there,” and second line “Will you be my Valentine?”."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/valentine/Screen1.tsx",
           "operation": "create",
-          "description": "Add Tailwind directives and global romantic pink/white theming (background, typography defaults, spacing) using existing styling entry point conventions."
-        }
-      ]
-    },
-    {
-      "id": "REQ-2",
-      "summary": "Make the “No” button evade pointer interactions by relocating within the visible area on hover/pointer enter, staying clear of the Yes button and question text.",
-      "acceptanceCriteria": [
-        "On pointer hover/enter over the “No” button, it immediately relocates to a different position within the visible area.",
-        "The “No” button remains within the viewport and does not overlap the “Yes” button or the main question text.",
-        "Behavior works with pointer devices (mouse/trackpad)."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/App.tsx",
-          "operation": "modify",
-          "description": "Add pointer-device evasive behavior for the “No” button (e.g., onPointerEnter), computing a new random position within a bounded container while avoiding overlap with the question and “Yes” button (use refs/measurements as needed)."
-        }
-      ]
-    },
-    {
-      "id": "REQ-3",
-      "summary": "Add touch-friendly evasive behavior so tapping “No” on iPad/touch devices makes it move away before a click completes.",
-      "acceptanceCriteria": [
-        "On touchstart/tap attempt on “No”, the button relocates before it can be successfully clicked.",
-        "The experience remains smooth and does not require a keyboard or mouse to function."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/App.tsx",
-          "operation": "modify",
-          "description": "Add touch evasive handling for the “No” button (e.g., onTouchStart and/or pointer events) to relocate immediately and prevent a completed click on touch devices like iPad."
-        }
-      ]
-    },
-    {
-      "id": "REQ-4",
-      "summary": "On “Yes” click, switch to a celebratory state showing the meme image and the exact text “Good choice”, removing/ignoring the original buttons.",
-      "acceptanceCriteria": [
-        "Clicking “Yes” transitions to a new state that shows the meme image and the exact text “Good choice”.",
-        "After “Yes” is clicked, the “Yes/No” buttons are no longer shown or are clearly disabled/irrelevant."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/App.tsx",
-          "operation": "modify",
-          "description": "Implement UI state transition on “Yes” click to replace the prompt with a celebratory view that renders the static image and displays the exact text “Good choice”, and hides/disables the original “Yes/No” controls."
-        }
-      ]
-    },
-    {
-      "id": "REQ-5",
-      "summary": "Add the required generated image asset under frontend/public/assets/generated and render it as a static frontend asset (no backend fetch).",
-      "acceptanceCriteria": [
-        "Generated image file(s) exist in frontend/public/assets/generated with the exact filenames specified in the image requirements.",
-        "Frontend displays the image via a static path (e.g., /assets/generated/...)."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/public/assets/generated/valentine-good-choice-meme.dim_1024x1024.png",
-          "operation": "create",
-          "description": "Add the generated meme-style romantic image asset with bold readable text “Good choice”, pink/white palette, heart accents."
+          "description": "Create Screen 1 component with: top-corner calendar icon image (frontend/public/assets/generated/calendar-14-feb-kawaii.dim_256x256.png), sticker visuals near heading (frontend/public/assets/generated/bunny-sticker.dim_512x512.png and frontend/public/assets/generated/heart-sticker.dim_512x512.png), and centered copy exactly “Hey there,\\nWill you be my Valentine?”; ensure mobile-safe positioning. Verify the component's usage instructions before implementing."
         },
         {
           "path": "frontend/src/App.tsx",
           "operation": "modify",
-          "description": "Render the generated image from the celebratory view using the exact static asset path referencing frontend/public/assets/generated/valentine-good-choice-meme.dim_1024x1024.png."
+          "description": "Wire the new Screen1 component into the app as the initial view, replacing the prior Screen 1 markup while preserving overall app structure."
+        }
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "summary": "Update Screen 1 CTAs to exactly two prominent rounded buttons labeled “YES OF COURSE” and “NO THANK YOU”, with YES slightly larger and both mobile-tappable.",
+      "acceptanceCriteria": [
+        "Screen 1 shows exactly two primary options with labels “YES OF COURSE” and “NO THANK YOU”.",
+        "YES button is visually larger than NO button (e.g., size, emphasis) and looks more inviting.",
+        "Both buttons have large touch targets suitable for mobile (no tiny tap areas)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/valentine/Screen1.tsx",
+          "operation": "modify",
+          "description": "Implement exactly two rounded buttons with labels “YES OF COURSE” and “NO THANK YOU”; style YES as slightly larger/more inviting while keeping both as large touch targets on mobile. Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "summary": "Preserve and adapt the evasive “NO THANK YOU” interaction for hover and touch/press attempts, keeping it effectively unclickable and within visible bounds.",
+      "acceptanceCriteria": [
+        "On desktop hover/pointer enter, the “NO THANK YOU” button relocates before it can be clicked.",
+        "On touch devices, attempting to tap/press “NO THANK YOU” causes it to move away before a click completes.",
+        "The button does not move off-screen or become permanently unreachable due to positioning; it remains visible within the interaction area."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/valentine/useEvasiveButton.ts",
+          "operation": "create",
+          "description": "Create a small hook to manage evasive button positioning within a container (bounded random repositioning with padding, respecting common mobile viewports) and expose handlers for pointer hover and touch/press attempts."
+        },
+        {
+          "path": "frontend/src/components/valentine/Screen1.tsx",
+          "operation": "modify",
+          "description": "Integrate the evasive behavior hook into the “NO THANK YOU” button: move on pointer enter for desktop and on touch/press attempt for mobile; ensure it remains within container bounds and does not become reachable/clickable. Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "summary": "Replace the post-YES meme view with Screen 2 featuring the specified headline, animated heart character on the left, and three interactive gift cards with smooth transitions/pop animations.",
+      "acceptanceCriteria": [
+        "Clicking “YES OF COURSE” navigates to/updates the UI to Screen 2 (no meme-only success screen).",
+        "Screen 2 headline text matches exactly with the specified line break.",
+        "An animated heart character is visible on the left side on desktop and reflows appropriately on mobile (e.g., above or alongside content without overlap).",
+        "Three prominent gift cards labeled “Gift 1”, “Gift 2”, “Gift 3” are visible and tappable, with rounded corners and soft shadows.",
+        "Screen 2 entry and gift-card interactions include noticeable smooth transitions/pop animations."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/valentine/Screen2.tsx",
+          "operation": "create",
+          "description": "Create Screen 2 component with headline text exactly “Yay, you said yes!\\nI made all these for you hehe”, a left-side heart character image (frontend/public/assets/generated/heart-character.dim_512x512.png) animated via CSS, and three large rounded gift cards labeled “Gift 1”, “Gift 2”, “Gift 3” with hover/tap pop animations. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Replace the current answered/meme success state with Screen 2 state; wire YES OF COURSE to transition into Screen 2 with smooth entry animation."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Add animation keyframes/utilities for Screen 2 entry (soft fade/slide) and gift card pop interactions (hover/tap), aligned with the app’s rounded/soft-shadow kawaii style."
+        }
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "summary": "Implement Gift 1 as a modal/popup or dedicated view from Screen 2 with a rose bouquet centerpiece, four exact message bubbles around it, and floating hearts animation.",
+      "acceptanceCriteria": [
+        "Opening “Gift 1” shows a bouquet of red roses with a ribbon as the central visual.",
+        "All four message bubbles are present and match the provided text exactly (including punctuation).",
+        "Message bubbles are positioned around the bouquet and remain readable on mobile (stack/reflow allowed).",
+        "Floating hearts animation is visible while Gift 1 view is open."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/valentine/gifts/Gift1View.tsx",
+          "operation": "create",
+          "description": "Create Gift 1 view with centered bouquet image (frontend/public/assets/generated/rose-bouquet-ribbon.dim_1024x1024.png), four surrounding message bubbles containing exactly: “I will always love you no matter what”, “You are the best part of my life”, “You will forever be my only option”, “I can’t imagine my life without you”; include floating hearts animation while open. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Add floating-hearts animation utilities used by Gift 1 (and reusable elsewhere), ensuring decorations do not obscure text on mobile."
+        },
+        {
+          "path": "frontend/src/components/valentine/Screen2.tsx",
+          "operation": "modify",
+          "description": "Wire “Gift 1” card interaction to open Gift 1 view (modal/popup or dedicated overlay) with soft transitions. Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-12",
+      "summary": "Implement Gift 2 as a modal/popup or dedicated view from Screen 2 with a cute card UI containing a short sweet/simple/emotional love letter plus sparkles and small hearts decorations/animations.",
+      "acceptanceCriteria": [
+        "Opening “Gift 2” shows a card-style UI containing a short love letter.",
+        "Love letter tone matches: sweet/simple/emotional (avoid overly exaggerated or crude phrasing).",
+        "Sparkles and small hearts decorations/animations are visible on the Gift 2 view without obstructing the text on mobile."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/valentine/gifts/Gift2View.tsx",
+          "operation": "create",
+          "description": "Create Gift 2 view with a cute card UI containing a short love letter (sweet, simple, emotional, not cringe) and decorative sparkles/hearts using the sparkles asset (frontend/public/assets/generated/sparkles-doodles.dim_512x512.png) with subtle animations that stay clear of the text on mobile. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/valentine/Screen2.tsx",
+          "operation": "modify",
+          "description": "Wire “Gift 2” card interaction to open Gift 2 view with smooth/soft pop transitions. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Add sparkle/twinkle animation utilities for Gift 2 decorations, tuned for readability on mobile."
+        }
+      ]
+    },
+    {
+      "id": "REQ-13",
+      "summary": "Implement Gift 3 as a modal/popup or dedicated view from Screen 2 with exact messages and heart burst + confetti hearts animations.",
+      "acceptanceCriteria": [
+        "Opening “Gift 3” displays both lines exactly: “Happy Valentine’s Day ❤️” and “You’re my favorite person”.",
+        "A heart burst animation plays when Gift 3 opens.",
+        "Confetti hearts animation is visible on Gift 3 view."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/valentine/gifts/Gift3View.tsx",
+          "operation": "create",
+          "description": "Create Gift 3 view with big messages exactly “Happy Valentine’s Day ❤️” and “You’re my favorite person”; implement a heart burst animation on open and a confetti hearts animation using the asset (frontend/public/assets/generated/confetti-hearts.dim_1024x1024.png). Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/valentine/Screen2.tsx",
+          "operation": "modify",
+          "description": "Wire “Gift 3” card interaction to open Gift 3 view with smooth transitions. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Add heart-burst and confetti animation utilities used by Gift 3, ensuring animations are noticeable but not obstructive on mobile."
+        }
+      ]
+    },
+    {
+      "id": "REQ-14",
+      "summary": "Add navigation affordances so each gift view can close/go back to Screen 2 with consistent smooth pop transitions and without full reload.",
+      "acceptanceCriteria": [
+        "Each gift view includes a clear way to close/go back to Screen 2.",
+        "Returning to Screen 2 preserves the same general styling and does not require a full page reload.",
+        "Open/close transitions feel smooth and consistent with the rest of the experience."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/valentine/GiftOverlay.tsx",
+          "operation": "create",
+          "description": "Create a reusable modal/overlay wrapper with a close control and soft open/close transitions to host Gift 1/2/3 views, returning to Screen 2 without page reload. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/valentine/Screen2.tsx",
+          "operation": "modify",
+          "description": "Use the GiftOverlay wrapper to open/close Gift 1/2/3 views from Screen 2 and handle back/close interactions consistently. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Add/standardize overlay open/close transition classes (soft fade + slight scale) to match the overall smooth pop animation style."
+        }
+      ]
+    },
+    {
+      "id": "REQ-15",
+      "summary": "Add and reference all newly required decorative/character/illustration assets as static files under frontend/public/assets/generated (no backend image fetching).",
+      "acceptanceCriteria": [
+        "All newly generated images referenced by the UI are present under frontend/public/assets/generated.",
+        "The frontend references these assets via static paths (e.g., /assets/generated/...).",
+        "No backend endpoints are introduced for serving or transforming images."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/public/assets/generated/calendar-14-feb-kawaii.dim_256x256.png",
+          "operation": "create",
+          "description": "Add the generated static asset file for the Screen 1 calendar icon."
+        },
+        {
+          "path": "frontend/public/assets/generated/bunny-sticker.dim_512x512.png",
+          "operation": "create",
+          "description": "Add the generated static asset file for the Screen 1 bunny sticker."
+        },
+        {
+          "path": "frontend/public/assets/generated/heart-sticker.dim_512x512.png",
+          "operation": "create",
+          "description": "Add the generated static asset file for the Screen 1 heart sticker."
+        },
+        {
+          "path": "frontend/public/assets/generated/heart-doodle-pattern-tile.dim_512x512.png",
+          "operation": "create",
+          "description": "Add the generated static asset file for the seamless heart doodle background tile used as Screen 1/2 decoration."
+        },
+        {
+          "path": "frontend/public/assets/generated/heart-character.dim_512x512.png",
+          "operation": "create",
+          "description": "Add the generated static asset file for the Screen 2 heart character."
+        },
+        {
+          "path": "frontend/public/assets/generated/rose-bouquet-ribbon.dim_1024x1024.png",
+          "operation": "create",
+          "description": "Add the generated static asset file for the Gift 1 bouquet centerpiece."
+        },
+        {
+          "path": "frontend/public/assets/generated/confetti-hearts.dim_1024x1024.png",
+          "operation": "create",
+          "description": "Add the generated static asset file for Gift 3 confetti hearts."
+        },
+        {
+          "path": "frontend/public/assets/generated/sparkles-doodles.dim_512x512.png",
+          "operation": "create",
+          "description": "Add the generated static asset file for Gift 2 sparkles decorations."
+        },
+        {
+          "path": "frontend/src/components/valentine/DecorBackground.tsx",
+          "operation": "create",
+          "description": "Create a reusable background decoration component that renders the pastel heart doodle pattern using frontend/public/assets/generated/heart-doodle-pattern-tile.dim_512x512.png as a static asset and applies it as a subtle overlay behind Screen 1/2 content. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire DecorBackground into Screen 1 and Screen 2 layouts and ensure all image references use static paths under /assets/generated/ (no backend image fetching)."
         }
       ]
     }

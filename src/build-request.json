@@ -1,107 +1,229 @@
 {
   "kind": "build_request",
-  "title": "Romantic Valentine prompt page with evasive No button and Yes reveal meme",
+  "title": "Revamp Valentine UI to kawaii viral multi-screen gift experience",
   "priority": "normal",
   "requirements": [
     {
-      "id": "REQ-1",
-      "text": "Create a single-page romantic Valentine UI that asks the question “Will you be my Valentine?” and presents exactly two prominent options: “Yes” and “No”, using a pink-and-white romantic theme suitable for iPad Chrome.",
+      "id": "REQ-6",
+      "text": "Revamp Screen 1 (main page) UI to a Pinterest/TikTok-style kawaii Valentine aesthetic: soft pastel pink gradient background, small heart doodles/cute decorations, rounded corners, smooth soft shadows, and clean minimal typography; ensure the layout is fully responsive for mobile.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-2"
+          "msg-6"
         ],
         "quotes": [
-          "Create an interactive web page as a surprise for my girlfriend. The page should be simple, romantic-themed, and have only one purpose: to ask her to be my Valentine.\nThere should be two options: Yes or No.\n... The page should be themed\nromantically with a pink and white color scheme"
+          "Create a viral cute Valentine’s Day interactive website (Pinterest / TikTok style) with a soft pastel pink + red aesthetic, kawaii doodles, floating hearts, rounded corners, smooth shadows, and clean minimal typography. Make it fully responsive for mobile."
         ]
       },
       "acceptanceCriteria": [
-        "Landing view shows the question “Will you be my Valentine?” with two buttons labeled “Yes” and “No”.",
-        "Overall styling is clearly romantic and uses a pink/white palette (background, typography, accents).",
-        "Layout is responsive and usable on iPad Chrome in both portrait and landscape."
+        "On mobile and desktop widths, Screen 1 content stays centered and readable without overflow or clipped UI.",
+        "Background uses a pastel pink gradient and includes visible heart doodles/cute decorations.",
+        "UI uses consistently rounded corners and soft shadows across interactive elements (buttons/cards).",
+        "Typography is minimal/clean and consistent across both screens and gift views."
       ]
     },
     {
-      "id": "REQ-2",
-      "text": "Implement interactive behavior where the “No” button moves to a different position whenever the user tries to interact with it (e.g., hover/pointer enter), making it effectively unclickable.",
+      "id": "REQ-7",
+      "text": "Update Screen 1 content and decorations: add a small “14 FEB” calendar icon in a top corner; add cute bunny/heart sticker-style visuals near the heading; set centered copy to exactly “Hey there,\\nWill you be my Valentine?” (line break between greeting and question).",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-2"
+          "msg-6"
         ],
         "quotes": [
-          "When she hovers her cursor over No, it should move away so she cannot click it, forcing her to click only on Yes."
+          "Add a small “14 FEB” calendar icon in the top corner",
+          "Add cute bunny/heart stickers near the heading",
+          "Center text:\n“Hey there,\nWill you be my Valentine?”"
         ]
       },
       "acceptanceCriteria": [
-        "On pointer hover/enter over the “No” button, it immediately relocates to a different position within the visible area.",
-        "The “No” button remains within the viewport and does not overlap the “Yes” button or the main question text.",
-        "Behavior works with pointer devices (mouse/trackpad)."
+        "A “14 FEB” calendar icon is visible in a top corner on Screen 1 and remains well-positioned on mobile.",
+        "At least two sticker-style visuals (bunny/heart) appear near the heading and do not overlap the main text on mobile.",
+        "Main centered text matches exactly: first line “Hey there,” and second line “Will you be my Valentine?”."
       ]
     },
     {
-      "id": "REQ-3",
-      "text": "Add a touch-friendly fallback so that on touch devices (iPad), attempting to tap the “No” button causes it to move away before a click can be completed.",
+      "id": "REQ-8",
+      "text": "Update Screen 1 buttons to exactly two prominent rounded buttons labeled “YES OF COURSE” and “NO THANK YOU”; make the YES button slightly larger/more inviting than the NO button while keeping both easily tappable on mobile.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-2"
+          "msg-6"
         ],
         "quotes": [
-          "...fully interactive ... so that I can easily run it on my iPad using Chrome."
+          "Two rounded buttons:\n\t•\tYES OF COURSE\n\t•\tNO THANK YOU\n\t•\tMake the YES button slightly bigger and more inviting"
         ]
       },
       "acceptanceCriteria": [
-        "On touchstart/tap attempt on “No”, the button relocates before it can be successfully clicked.",
-        "The experience remains smooth and does not require a keyboard or mouse to function."
+        "Screen 1 shows exactly two primary options with labels “YES OF COURSE” and “NO THANK YOU”.",
+        "YES button is visually larger than NO button (e.g., size, emphasis) and looks more inviting.",
+        "Both buttons have large touch targets suitable for mobile (no tiny tap areas)."
       ]
     },
     {
-      "id": "REQ-4",
-      "text": "When the user clicks “Yes”, replace the initial prompt with a celebratory view that displays a meme image and the message “Good choice”.",
+      "id": "REQ-9",
+      "text": "Preserve and adapt the evasive interaction for the “NO THANK YOU” button so it moves away on hover (pointer devices) and on tap/press attempt (touch devices), keeping it effectively unclickable while staying within visible bounds of its container on common mobile viewports.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-2"
+          "msg-6"
         ],
         "quotes": [
-          "When she clicks Yes, show her a meme image telling her \"Good choice"
+          "Make the “NO THANK YOU” button move away when hovered / tapped (funny viral style)"
         ]
       },
       "acceptanceCriteria": [
-        "Clicking “Yes” transitions to a new state that shows the meme image and the exact text “Good choice”.",
-        "After “Yes” is clicked, the “Yes/No” buttons are no longer shown or are clearly disabled/irrelevant."
+        "On desktop hover/pointer enter, the “NO THANK YOU” button relocates before it can be clicked.",
+        "On touch devices, attempting to tap/press “NO THANK YOU” causes it to move away before a click completes.",
+        "The button does not move off-screen or become permanently unreachable due to positioning; it remains visible within the interaction area."
       ]
     },
     {
-      "id": "REQ-5",
-      "text": "Add the required generated image asset(s) under frontend/public/assets/generated and render them from the frontend (do not fetch images from the backend).",
+      "id": "REQ-10",
+      "text": "Replace the current post-YES “Good choice” meme view with Screen 2: show big text exactly “Yay, you said yes!\\nI made all these for you hehe”; display a cute animated heart character on the left; show three large rounded gift cards/boxes labeled “Gift 1”, “Gift 2”, “Gift 3”; include smooth transitions and soft pop animations when Screen 2 appears and when hovering/tapping gift cards.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-2"
+          "msg-6"
+        ],
+        "quotes": [
+          "SCREEN 2 (After Clicking YES)\n\t•\tShow big cute text:\n“Yay, you said yes!\nI made all these for you hehe”\n\t•\tAdd a cute animated heart character on the left\n\t•\tShow 3 big rounded gift cards/boxes:\n\t•\tGift 1\n\t•\tGift 2\n\t•\tGift 3\n\t•\tSmooth transitions + soft pop animations"
         ]
       },
       "acceptanceCriteria": [
-        "Generated image file(s) exist in frontend/public/assets/generated with the exact filenames specified in the image requirements.",
-        "Frontend displays the image via a static path (e.g., /assets/generated/...)."
+        "Clicking “YES OF COURSE” navigates to/updates the UI to Screen 2 (no meme-only success screen).",
+        "Screen 2 headline text matches exactly with the specified line break.",
+        "An animated heart character is visible on the left side on desktop and reflows appropriately on mobile (e.g., above or alongside content without overlap).",
+        "Three prominent gift cards labeled “Gift 1”, “Gift 2”, “Gift 3” are visible and tappable, with rounded corners and soft shadows.",
+        "Screen 2 entry and gift-card interactions include noticeable smooth transitions/pop animations."
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "text": "Implement Gift 1 as a dedicated screen or modal/popup opened from Screen 2: show a centered bouquet of red roses with a ribbon; place cute message bubbles around it containing exactly these lines: “I will always love you no matter what”, “You are the best part of my life”, “You will forever be my only option”, “I can’t imagine my life without you”; add floating hearts animation on this view.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-6"
+        ],
+        "quotes": [
+          "Gift 1:\n\t•\tA bouquet of red roses in the center with a ribbon\n\t•\tAround it, cute message bubbles that say:\n\t•\t“I will always love you no matter what”\n\t•\t“You are the best part of my life”\n\t•\t“You will forever be my only option”\n\t•\t“I can’t imagine my life without you”\n\t•\tAdd floating hearts animation"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Opening “Gift 1” shows a bouquet of red roses with a ribbon as the central visual.",
+        "All four message bubbles are present and match the provided text exactly (including punctuation).",
+        "Message bubbles are positioned around the bouquet and remain readable on mobile (stack/reflow allowed).",
+        "Floating hearts animation is visible while Gift 1 view is open."
+      ]
+    },
+    {
+      "id": "REQ-12",
+      "text": "Implement Gift 2 as a dedicated screen or modal/popup opened from Screen 2: show a short romantic love letter inside a cute card UI (sweet, simple, emotional, not cringe); add sparkles and small hearts as decorative animation elements.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-6"
+        ],
+        "quotes": [
+          "Gift 2:\n\t•\tA short romantic love letter in a cute card UI\n\t•\tExample vibe: sweet, simple, emotional, not cringe\n\t•\tAdd sparkles and small hearts"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Opening “Gift 2” shows a card-style UI containing a short love letter.",
+        "Love letter tone matches: sweet/simple/emotional (avoid overly exaggerated or crude phrasing).",
+        "Sparkles and small hearts decorations/animations are visible on the Gift 2 view without obstructing the text on mobile."
+      ]
+    },
+    {
+      "id": "REQ-13",
+      "text": "Implement Gift 3 as a dedicated screen or modal/popup opened from Screen 2: show a final screen with big cute messages including exactly “Happy Valentine’s Day ❤️” and “You’re my favorite person”; add a heart burst animation and confetti hearts animation.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-6"
+        ],
+        "quotes": [
+          "Gift 3:\n\t•\tA final screen with a big cute message like:\n“Happy Valentine’s Day ❤️”\n“You’re my favorite person”\t•\tAdd heart burst animation + confetti hearts"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Opening “Gift 3” displays both lines exactly: “Happy Valentine’s Day ❤️” and “You’re my favorite person”.",
+        "A heart burst animation plays when Gift 3 opens.",
+        "Confetti hearts animation is visible on Gift 3 view."
+      ]
+    },
+    {
+      "id": "REQ-14",
+      "text": "Provide navigation affordances for gift views (screen or modal/popup) so the user can return to Screen 2 after viewing a gift, with transitions consistent with the app’s soft pop/smooth animation style.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-6"
+        ],
+        "quotes": [
+          "GIFTS (Each Gift Opens a New Screen or Popup)"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Each gift view includes a clear way to close/go back to Screen 2.",
+        "Returning to Screen 2 preserves the same general styling and does not require a full page reload.",
+        "Open/close transitions feel smooth and consistent with the rest of the experience."
+      ]
+    },
+    {
+      "id": "REQ-15",
+      "text": "Integrate all newly required decorative/character/illustration assets as static files under frontend/public/assets/generated and render them from the frontend (no backend image fetching).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-6"
+        ],
+        "quotes": [
+          "kawaii doodles, floating hearts, ... cute animated heart character ... bouquet of red roses ... calendar icon ... stickers"
+        ]
+      },
+      "acceptanceCriteria": [
+        "All newly generated images referenced by the UI are present under frontend/public/assets/generated.",
+        "The frontend references these assets via static paths (e.g., /assets/generated/...).",
+        "No backend endpoints are introduced for serving or transforming images."
       ]
     }
   ],
   "constraints": [
-    "Frontend must be built using the existing React + TypeScript + Tailwind stack (no plain standalone HTML file output).",
-    "Do not edit files under frontend/src/components/ui or the immutable hook/main entry paths listed in SYSTEM_CONTEXT.",
-    "No third-party auth or external services; keep the app fully self-contained for running in iPad Chrome."
+    "Frontend must remain a React + TypeScript app using the existing Tailwind/Shadcn setup (do not switch to a standalone HTML/CSS/JS build).",
+    "Do not edit files under frontend/src/components/ui (compose existing components instead).",
+    "Do not modify immutable hook/entry files listed in the system context (e.g., frontend/src/main.tsx, frontend/src/hooks/useActor.ts, frontend/src/hooks/useInternetIdentity.ts).",
+    "Backend remains single-actor (backend/main.mo); do not add extra backend services.",
+    "Keep the existing evasive “No” behavior pattern (hover/pointer + touch) while updating styling/labels."
   ],
   "nonGoals": [
-    "User accounts, login, or Internet Identity integration.",
-    "Backend canister features or persistence.",
-    "Multiple pages, navigation, or additional app functionality beyond the Valentine prompt and its interactions."
+    "Adding user accounts/authentication flows beyond what already exists in the template.",
+    "Persisting gifts/choices to the backend or adding any database-like storage.",
+    "Integrations with external social, messaging, or analytics services.",
+    "Adding real-time features (websockets/chat)."
   ],
   "imageRequirements": {
     "required": [
-      "Meme-style romantic image with bold readable text “Good choice”, pink/white palette, heart accents (valentine-good-choice-meme.dim_1024x1024.png)"
+      "Small kawaii calendar icon with “14 FEB” text (calendar-14-feb-kawaii.dim_256x256.png)",
+      "Kawaii bunny sticker illustration (bunny-sticker.dim_512x512.png)",
+      "Kawaii heart sticker illustration (heart-sticker.dim_512x512.png)",
+      "Seamless pastel heart doodle pattern tile (heart-doodle-pattern-tile.dim_512x512.png)",
+      "Cute heart character (idle pose) with simple animation-ready design on transparent background (heart-character.dim_512x512.png)",
+      "Bouquet of red roses with ribbon, centered composition on transparent background (rose-bouquet-ribbon.dim_1024x1024.png)",
+      "Confetti hearts assortment (small heart shapes) on transparent background (confetti-hearts.dim_1024x1024.png)",
+      "Sparkles/star doodles on transparent background (sparkles-doodles.dim_512x512.png)"
     ],
     "edits": []
+  },
+  "userProfileUpdate": {
+    "goalsToAdd": [],
+    "goalsToRemove": [],
+    "preferencesToAdd": [],
+    "preferencesToRemove": [],
+    "miscToAdd": [],
+    "miscToRemove": [],
+    "fieldsToSet": {},
+    "fieldsToDelete": []
   }
 }

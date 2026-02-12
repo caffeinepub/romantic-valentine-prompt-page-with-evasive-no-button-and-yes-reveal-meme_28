@@ -1,6 +1,14 @@
 {
-  "frontend/src/App.tsx": "Single-page Valentine's Day interactive component with evasive \"No\" button that moves on hover/touch and \"Yes\" button that reveals a success state with meme image and \"Good choice\" message.",
-  "frontend/src/index.css": "Global styles with romantic pink/rose OKLCH color palette optimized for Valentine's theme in both light and dark modes, plus custom animation delays.",
-  "frontend/tailwind.config.js": "Tailwind configuration with extended romantic color tokens and custom styling for the Valentine's Day theme.",
-  "frontend/src/hooks/useQueries.ts": "Minimal placeholder file as no backend queries are needed for this client-side only Valentine app."
+  "frontend/src/App.tsx": "Main app component managing screen state transitions between Screen1 (Valentine question) and Screen2 (gifts display), with shared DecorBackground and footer.",
+  "frontend/src/index.css": "Global styles with romantic pink OKLCH color palette, custom animations (float-heart, twinkle, heart-burst, confetti-fall, pop-in, bounce-slow), and animation delay utilities.",
+  "frontend/tailwind.config.js": "Tailwind configuration with extended romantic color tokens, additional border radius values (3xl, 4xl), and soft shadow utilities for kawaii aesthetic.",
+  "frontend/src/hooks/useQueries.ts": "Minimal placeholder file as no backend queries are needed for this client-side only Valentine app.",
+  "frontend/src/components/valentine/DecorBackground.tsx": "Reusable background component rendering pastel pink gradient with tiled heart doodle pattern overlay for consistent kawaii aesthetic across all screens.",
+  "frontend/src/components/valentine/Screen1.tsx": "Initial Valentine question screen with calendar icon, bunny/heart stickers, centered heading text, and two CTA buttons (YES OF COURSE and evasive NO THANK YOU) with fixed conflicting Tailwind classes.",
+  "frontend/src/components/valentine/useEvasiveButton.ts": "Custom hook managing evasive button behavior with bounded random repositioning on pointer hover and touch events, with nullable ref types for TypeScript compatibility.",
+  "frontend/src/components/valentine/Screen2.tsx": "Post-acceptance screen displaying animated heart character, headline text, and three interactive gift cards that open gift overlays with updated Tailwind v3 class names.",
+  "frontend/src/components/valentine/GiftOverlay.tsx": "Reusable modal wrapper component with backdrop, close button, and smooth transitions for displaying gift content.",
+  "frontend/src/components/valentine/gifts/Gift1View.tsx": "Gift 1 content displaying rose bouquet centerpiece with four surrounding message bubbles and floating hearts animation.",
+  "frontend/src/components/valentine/gifts/Gift2View.tsx": "Gift 2 content showing romantic love letter in card UI with sparkles and floating hearts decorations.",
+  "frontend/src/components/valentine/gifts/Gift3View.tsx": "Gift 3 content displaying final Valentine message with heart burst animation on mount and confetti hearts background."
 }

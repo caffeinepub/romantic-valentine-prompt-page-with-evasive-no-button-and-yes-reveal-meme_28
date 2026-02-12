@@ -70,10 +70,14 @@ export default {
             borderRadius: {
                 lg: 'var(--radius)',
                 md: 'calc(var(--radius) - 2px)',
-                sm: 'calc(var(--radius) - 4px)'
+                sm: 'calc(var(--radius) - 4px)',
+                '3xl': '1.875rem',
+                '4xl': '2.5rem'
             },
             boxShadow: {
-                xs: '0 1px 2px 0 rgba(0,0,0,0.05)'
+                xs: '0 1px 2px 0 rgba(0,0,0,0.05)',
+                'soft': '0 10px 40px -10px rgba(244, 114, 182, 0.3)',
+                'soft-lg': '0 20px 60px -15px rgba(244, 114, 182, 0.4)'
             },
             fontFamily: {
                 sans: [

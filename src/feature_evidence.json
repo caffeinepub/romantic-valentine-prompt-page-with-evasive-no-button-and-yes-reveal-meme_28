@@ -2,8 +2,8 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-create-a-single-page-romantic-valentine-ui-that-asks-the-question-will-you-be-my-valentine-and-presents-exactly-two-prominent-options-yes-and-no-using-a-pink-and-white-romantic-theme-suitable-for-ipad-chrome",
-      "featureTitle": "Create a single-page romantic Valentine UI that asks the question “Will you be my Valentine?” and presents exactly two prominent options: “Yes” and “No”, using a pink-and-white romantic theme suitable for iPad Chrome.",
+      "featureId": "feature-revamp-screen-1-main-page-ui-to-a-pinterest-tiktok-style-kawaii-valentine-aesthetic-soft-pastel-pink-gradient-background-small-heart-doodles-cute-decorations-rounded-corners-smooth-soft-shadows-and-clean-minimal-typography-ensure-the-layout-is-fully-responsive-for-mobile",
+      "featureTitle": "Revamp Screen 1 (main page) UI to a Pinterest/TikTok-style kawaii Valentine aesthetic: soft pastel pink gradient background, small heart doodles/cute decorations, rounded corners, smooth soft shadows, and clean minimal typography; ensure the layout is fully responsive for mobile.",
       "files": [
         "frontend/src/App.tsx",
         "frontend/src/index.css"
@@ -16,15 +16,16 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-1"
+        "REQ-6"
       ],
       "confidence": "high"
     },
     {
-      "featureId": "feature-implement-interactive-behavior-where-the-no-button-moves-to-a-different-position-whenever-the-user-tries-to-interact-with-it-e-g-hover-pointer-enter-making-it-effectively-unclickable",
-      "featureTitle": "Implement interactive behavior where the “No” button moves to a different position whenever the user tries to interact with it (e.g., hover/pointer enter), making it effectively unclickable.",
+      "featureId": "feature-update-screen-1-content-and-decorations-add-a-small-14-feb-calendar-icon-in-a-top-corner-add-cute-bunny-heart-sticker-style-visuals-near-the-heading-set-centered-copy-to-exactly-hey-there-nwill-you-be-my-valentine-line-break-between-greeting-and-question",
+      "featureTitle": "Update Screen 1 content and decorations: add a small “14 FEB” calendar icon in a top corner; add cute bunny/heart sticker-style visuals near the heading; set centered copy to exactly “Hey there,\\nWill you be my Valentine?” (line break between greeting and question).",
       "files": [
-        "frontend/src/App.tsx"
+        "frontend/src/App.tsx",
+        "frontend/src/components/valentine/Screen1.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -34,15 +35,15 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-2"
+        "REQ-7"
       ],
       "confidence": "high"
     },
     {
-      "featureId": "feature-add-a-touch-friendly-fallback-so-that-on-touch-devices-ipad-attempting-to-tap-the-no-button-causes-it-to-move-away-before-a-click-can-be-completed",
-      "featureTitle": "Add a touch-friendly fallback so that on touch devices (iPad), attempting to tap the “No” button causes it to move away before a click can be completed.",
+      "featureId": "feature-update-screen-1-buttons-to-exactly-two-prominent-rounded-buttons-labeled-yes-of-course-and-no-thank-you-make-the-yes-button-slightly-larger-more-inviting-than-the-no-button-while-keeping-both-easily-tappable-on-mobile",
+      "featureTitle": "Update Screen 1 buttons to exactly two prominent rounded buttons labeled “YES OF COURSE” and “NO THANK YOU”; make the YES button slightly larger/more inviting than the NO button while keeping both easily tappable on mobile.",
       "files": [
-        "frontend/src/App.tsx"
+        "frontend/src/components/valentine/Screen1.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -52,15 +53,16 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-3"
+        "REQ-8"
       ],
       "confidence": "high"
     },
     {
-      "featureId": "feature-when-the-user-clicks-yes-replace-the-initial-prompt-with-a-celebratory-view-that-displays-a-meme-image-and-the-message-good-choice",
-      "featureTitle": "When the user clicks “Yes”, replace the initial prompt with a celebratory view that displays a meme image and the message “Good choice”.",
+      "featureId": "feature-preserve-and-adapt-the-evasive-interaction-for-the-no-thank-you-button-so-it-moves-away-on-hover-pointer-devices-and-on-tap-press-attempt-touch-devices-keeping-it-effectively-unclickable-while-staying-within-visible-bounds-of-its-container-on-common-mobile-viewports",
+      "featureTitle": "Preserve and adapt the evasive interaction for the “NO THANK YOU” button so it moves away on hover (pointer devices) and on tap/press attempt (touch devices), keeping it effectively unclickable while staying within visible bounds of its container on common mobile viewports.",
       "files": [
-        "frontend/src/App.tsx"
+        "frontend/src/components/valentine/Screen1.tsx",
+        "frontend/src/components/valentine/useEvasiveButton.ts"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -70,15 +72,17 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-4"
+        "REQ-9"
       ],
       "confidence": "high"
     },
     {
-      "featureId": "feature-add-the-required-generated-image-asset-s-under-frontend-public-assets-generated-and-render-them-from-the-frontend-do-not-fetch-images-from-the-backend",
-      "featureTitle": "Add the required generated image asset(s) under frontend/public/assets/generated and render them from the frontend (do not fetch images from the backend).",
+      "featureId": "feature-replace-the-current-post-yes-good-choice-meme-view-with-screen-2-show-big-text-exactly-yay-you-said-yes-ni-made-all-these-for-you-hehe-display-a-cute-animated-heart-character-on-the-left-show-three-large-rounded-gift-cards-boxes-labeled-gift-1-gift-2-gift-3-include-smooth-transitions-and-soft-pop-animations-when-screen-2-appears-and-when-hovering-tapping-gift-cards",
+      "featureTitle": "Replace the current post-YES “Good choice” meme view with Screen 2: show big text exactly “Yay, you said yes!\\nI made all these for you hehe”; display a cute animated heart character on the left; show three large rounded gift cards/boxes labeled “Gift 1”, “Gift 2”, “Gift 3”; include smooth transitions and soft pop animations when Screen 2 appears and when hovering/tapping gift cards.",
       "files": [
-        "frontend/src/App.tsx"
+        "frontend/src/App.tsx",
+        "frontend/src/components/valentine/Screen2.tsx",
+        "frontend/src/index.css"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -88,7 +92,106 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-5"
+        "REQ-10"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-gift-1-as-a-dedicated-screen-or-modal-popup-opened-from-screen-2-show-a-centered-bouquet-of-red-roses-with-a-ribbon-place-cute-message-bubbles-around-it-containing-exactly-these-lines-i-will-always-love-you-no-matter-what-you-are-the-best-part-of-my-life-you-will-forever-be-my-only-option-i-can-t-imagine-my-life-without-you-add-floating-hearts-animation-on-this-view",
+      "featureTitle": "Implement Gift 1 as a dedicated screen or modal/popup opened from Screen 2: show a centered bouquet of red roses with a ribbon; place cute message bubbles around it containing exactly these lines: “I will always love you no matter what”, “You are the best part of my life”, “You will forever be my only option”, “I can’t imagine my life without you”; add floating hearts animation on this view.",
+      "files": [
+        "frontend/src/components/valentine/Screen2.tsx",
+        "frontend/src/components/valentine/gifts/Gift1View.tsx",
+        "frontend/src/index.css"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-11"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-gift-2-as-a-dedicated-screen-or-modal-popup-opened-from-screen-2-show-a-short-romantic-love-letter-inside-a-cute-card-ui-sweet-simple-emotional-not-cringe-add-sparkles-and-small-hearts-as-decorative-animation-elements",
+      "featureTitle": "Implement Gift 2 as a dedicated screen or modal/popup opened from Screen 2: show a short romantic love letter inside a cute card UI (sweet, simple, emotional, not cringe); add sparkles and small hearts as decorative animation elements.",
+      "files": [
+        "frontend/src/components/valentine/Screen2.tsx",
+        "frontend/src/components/valentine/gifts/Gift2View.tsx",
+        "frontend/src/index.css"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-12"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-gift-3-as-a-dedicated-screen-or-modal-popup-opened-from-screen-2-show-a-final-screen-with-big-cute-messages-including-exactly-happy-valentine-s-day-and-you-re-my-favorite-person-add-a-heart-burst-animation-and-confetti-hearts-animation",
+      "featureTitle": "Implement Gift 3 as a dedicated screen or modal/popup opened from Screen 2: show a final screen with big cute messages including exactly “Happy Valentine’s Day ❤️” and “You’re my favorite person”; add a heart burst animation and confetti hearts animation.",
+      "files": [
+        "frontend/src/components/valentine/Screen2.tsx",
+        "frontend/src/components/valentine/gifts/Gift3View.tsx",
+        "frontend/src/index.css"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-13"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-provide-navigation-affordances-for-gift-views-screen-or-modal-popup-so-the-user-can-return-to-screen-2-after-viewing-a-gift-with-transitions-consistent-with-the-app-s-soft-pop-smooth-animation-style",
+      "featureTitle": "Provide navigation affordances for gift views (screen or modal/popup) so the user can return to Screen 2 after viewing a gift, with transitions consistent with the app’s soft pop/smooth animation style.",
+      "files": [
+        "frontend/src/components/valentine/GiftOverlay.tsx",
+        "frontend/src/components/valentine/Screen2.tsx",
+        "frontend/src/index.css"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-14"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-integrate-all-newly-required-decorative-character-illustration-assets-as-static-files-under-frontend-public-assets-generated-and-render-them-from-the-frontend-no-backend-image-fetching",
+      "featureTitle": "Integrate all newly required decorative/character/illustration assets as static files under frontend/public/assets/generated and render them from the frontend (no backend image fetching).",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/valentine/DecorBackground.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-15"
       ],
       "confidence": "high"
     }
