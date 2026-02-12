@@ -1,0 +1,94 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Valentine prompt single-page UI with evasive No and Yes meme reveal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Build a single-page Valentine prompt UI with a pink/white romantic theme and exactly two prominent options (Yes/No) sized and laid out for iPad Chrome.",
+      "acceptanceCriteria": [
+        "Landing view shows the question “Will you be my Valentine?” with two buttons labeled “Yes” and “No”.",
+        "Overall styling is clearly romantic and uses a pink/white palette (background, typography, accents).",
+        "Layout is responsive and usable on iPad Chrome in both portrait and landscape."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "create",
+          "description": "Implement a single-screen React view rendering the question and exactly two prominent buttons (“Yes”, “No”) using Tailwind for a pink/white romantic layout optimized for iPad Chrome (portrait/landscape)."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "create",
+          "description": "Add Tailwind directives and global romantic pink/white theming (background, typography defaults, spacing) using existing styling entry point conventions."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Make the “No” button evade pointer interactions by relocating within the visible area on hover/pointer enter, staying clear of the Yes button and question text.",
+      "acceptanceCriteria": [
+        "On pointer hover/enter over the “No” button, it immediately relocates to a different position within the visible area.",
+        "The “No” button remains within the viewport and does not overlap the “Yes” button or the main question text.",
+        "Behavior works with pointer devices (mouse/trackpad)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add pointer-device evasive behavior for the “No” button (e.g., onPointerEnter), computing a new random position within a bounded container while avoiding overlap with the question and “Yes” button (use refs/measurements as needed)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Add touch-friendly evasive behavior so tapping “No” on iPad/touch devices makes it move away before a click completes.",
+      "acceptanceCriteria": [
+        "On touchstart/tap attempt on “No”, the button relocates before it can be successfully clicked.",
+        "The experience remains smooth and does not require a keyboard or mouse to function."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add touch evasive handling for the “No” button (e.g., onTouchStart and/or pointer events) to relocate immediately and prevent a completed click on touch devices like iPad."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "On “Yes” click, switch to a celebratory state showing the meme image and the exact text “Good choice”, removing/ignoring the original buttons.",
+      "acceptanceCriteria": [
+        "Clicking “Yes” transitions to a new state that shows the meme image and the exact text “Good choice”.",
+        "After “Yes” is clicked, the “Yes/No” buttons are no longer shown or are clearly disabled/irrelevant."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Implement UI state transition on “Yes” click to replace the prompt with a celebratory view that renders the static image and displays the exact text “Good choice”, and hides/disables the original “Yes/No” controls."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Add the required generated image asset under frontend/public/assets/generated and render it as a static frontend asset (no backend fetch).",
+      "acceptanceCriteria": [
+        "Generated image file(s) exist in frontend/public/assets/generated with the exact filenames specified in the image requirements.",
+        "Frontend displays the image via a static path (e.g., /assets/generated/...)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/public/assets/generated/valentine-good-choice-meme.dim_1024x1024.png",
+          "operation": "create",
+          "description": "Add the generated meme-style romantic image asset with bold readable text “Good choice”, pink/white palette, heart accents."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Render the generated image from the celebratory view using the exact static asset path referencing frontend/public/assets/generated/valentine-good-choice-meme.dim_1024x1024.png."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "kind": "build_request",
+  "title": "Romantic Valentine prompt page with evasive No button and Yes reveal meme",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Create a single-page romantic Valentine UI that asks the question “Will you be my Valentine?” and presents exactly two prominent options: “Yes” and “No”, using a pink-and-white romantic theme suitable for iPad Chrome.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Create an interactive web page as a surprise for my girlfriend. The page should be simple, romantic-themed, and have only one purpose: to ask her to be my Valentine.\nThere should be two options: Yes or No.\n... The page should be themed\nromantically with a pink and white color scheme"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Landing view shows the question “Will you be my Valentine?” with two buttons labeled “Yes” and “No”.",
+        "Overall styling is clearly romantic and uses a pink/white palette (background, typography, accents).",
+        "Layout is responsive and usable on iPad Chrome in both portrait and landscape."
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Implement interactive behavior where the “No” button moves to a different position whenever the user tries to interact with it (e.g., hover/pointer enter), making it effectively unclickable.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "When she hovers her cursor over No, it should move away so she cannot click it, forcing her to click only on Yes."
+        ]
+      },
+      "acceptanceCriteria": [
+        "On pointer hover/enter over the “No” button, it immediately relocates to a different position within the visible area.",
+        "The “No” button remains within the viewport and does not overlap the “Yes” button or the main question text.",
+        "Behavior works with pointer devices (mouse/trackpad)."
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Add a touch-friendly fallback so that on touch devices (iPad), attempting to tap the “No” button causes it to move away before a click can be completed.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "...fully interactive ... so that I can easily run it on my iPad using Chrome."
+        ]
+      },
+      "acceptanceCriteria": [
+        "On touchstart/tap attempt on “No”, the button relocates before it can be successfully clicked.",
+        "The experience remains smooth and does not require a keyboard or mouse to function."
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "When the user clicks “Yes”, replace the initial prompt with a celebratory view that displays a meme image and the message “Good choice”.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "When she clicks Yes, show her a meme image telling her \"Good choice"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Clicking “Yes” transitions to a new state that shows the meme image and the exact text “Good choice”.",
+        "After “Yes” is clicked, the “Yes/No” buttons are no longer shown or are clearly disabled/irrelevant."
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Add the required generated image asset(s) under frontend/public/assets/generated and render them from the frontend (do not fetch images from the backend).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Generated image file(s) exist in frontend/public/assets/generated with the exact filenames specified in the image requirements.",
+        "Frontend displays the image via a static path (e.g., /assets/generated/...)."
+      ]
+    }
+  ],
+  "constraints": [
+    "Frontend must be built using the existing React + TypeScript + Tailwind stack (no plain standalone HTML file output).",
+    "Do not edit files under frontend/src/components/ui or the immutable hook/main entry paths listed in SYSTEM_CONTEXT.",
+    "No third-party auth or external services; keep the app fully self-contained for running in iPad Chrome."
+  ],
+  "nonGoals": [
+    "User accounts, login, or Internet Identity integration.",
+    "Backend canister features or persistence.",
+    "Multiple pages, navigation, or additional app functionality beyond the Valentine prompt and its interactions."
+  ],
+  "imageRequirements": {
+    "required": [
+      "Meme-style romantic image with bold readable text “Good choice”, pink/white palette, heart accents (valentine-good-choice-meme.dim_1024x1024.png)"
+    ],
+    "edits": []
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-create-a-single-page-romantic-valentine-ui-that-asks-the-question-will-you-be-my-valentine-and-presents-exactly-two-prominent-options-yes-and-no-using-a-pink-and-white-romantic-theme-suitable-for-ipad-chrome",
+      "featureTitle": "Create a single-page romantic Valentine UI that asks the question “Will you be my Valentine?” and presents exactly two prominent options: “Yes” and “No”, using a pink-and-white romantic theme suitable for iPad Chrome.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/index.css"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-interactive-behavior-where-the-no-button-moves-to-a-different-position-whenever-the-user-tries-to-interact-with-it-e-g-hover-pointer-enter-making-it-effectively-unclickable",
+      "featureTitle": "Implement interactive behavior where the “No” button moves to a different position whenever the user tries to interact with it (e.g., hover/pointer enter), making it effectively unclickable.",
+      "files": [
+        "frontend/src/App.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-a-touch-friendly-fallback-so-that-on-touch-devices-ipad-attempting-to-tap-the-no-button-causes-it-to-move-away-before-a-click-can-be-completed",
+      "featureTitle": "Add a touch-friendly fallback so that on touch devices (iPad), attempting to tap the “No” button causes it to move away before a click can be completed.",
+      "files": [
+        "frontend/src/App.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-when-the-user-clicks-yes-replace-the-initial-prompt-with-a-celebratory-view-that-displays-a-meme-image-and-the-message-good-choice",
+      "featureTitle": "When the user clicks “Yes”, replace the initial prompt with a celebratory view that displays a meme image and the message “Good choice”.",
+      "files": [
+        "frontend/src/App.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-4"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-the-required-generated-image-asset-s-under-frontend-public-assets-generated-and-render-them-from-the-frontend-do-not-fetch-images-from-the-backend",
+      "featureTitle": "Add the required generated image asset(s) under frontend/public/assets/generated and render them from the frontend (do not fetch images from the backend).",
+      "files": [
+        "frontend/src/App.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-5"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

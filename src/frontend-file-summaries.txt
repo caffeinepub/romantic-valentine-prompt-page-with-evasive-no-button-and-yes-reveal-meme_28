@@ -1,0 +1,6 @@
+{
+  "frontend/src/App.tsx": "Single-page Valentine's Day interactive component with evasive \"No\" button that moves on hover/touch and \"Yes\" button that reveals a success state with meme image and \"Good choice\" message.",
+  "frontend/src/index.css": "Global styles with romantic pink/rose OKLCH color palette optimized for Valentine's theme in both light and dark modes, plus custom animation delays.",
+  "frontend/tailwind.config.js": "Tailwind configuration with extended romantic color tokens and custom styling for the Valentine's Day theme.",
+  "frontend/src/hooks/useQueries.ts": "Minimal placeholder file as no backend queries are needed for this client-side only Valentine app."
+}

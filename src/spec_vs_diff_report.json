@@ -1,0 +1,66 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-12T00:30:23.389Z",
+  "summary": "Core Valentine single-page UI and Yes->celebration state appear implemented in App.tsx, including rendering the meme image from a static /assets/generated path. However, the diff does not show the required generated image file being added under frontend/public/assets/generated, and the evasive No-button logic shown does not demonstrate avoiding overlap with the Yes button or question text. The diff also introduces unrequested Internet Identity/auth plumbing and related hooks, which conflicts with the non-goals/constraints.",
+  "missing_requirements": [
+    {
+      "id": "REQ-2",
+      "requirement": "Ensure the moving “No” button remains within the viewport and does not overlap the “Yes” button or the main question text.",
+      "reason": "The shown No-button movement code picks a random position within container bounds with padding but contains no explicit logic to prevent overlap with the Yes button or the question text.",
+      "evidence": [
+        "frontend/src/App.tsx"
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "requirement": "Add the required generated image asset(s) under frontend/public/assets/generated with the exact filename valentine-good-choice-meme.dim_1024x1024.png.",
+      "reason": "The frontend references /assets/generated/valentine-good-choice-meme.dim_1024x1024.png, but the diff summary does not include adding any file under frontend/public/assets/generated.",
+      "evidence": [
+        "frontend/src/App.tsx",
+        "<file-diff>: ADDED FILES list (no frontend/public/assets/generated/*)"
+      ]
+    }
+  ],
+  "hallucinated_features": [
+    {
+      "description": "Internet Identity / authentication integration via InternetIdentityProvider and related hooks (useInternetIdentity, useActor), plus react-query actor management.",
+      "reason": "BuildRequest explicitly lists user accounts/login/Internet Identity integration as non-goals and requests a fully self-contained app with no third-party auth.",
+      "evidence": [
+        "frontend/src/main.tsx",
+        "frontend/src/hooks/useInternetIdentity.ts",
+        "frontend/src/hooks/useActor.ts"
+      ]
+    },
+    {
+      "description": "Footer linking out to caffeine.ai with referral parameters.",
+      "reason": "Not requested in the BuildRequest (adds external navigation/content beyond the Valentine prompt interactions).",
+      "evidence": [
+        "frontend/src/App.tsx"
+      ]
+    },
+    {
+      "description": "Added empty backend canister actor (backend/main.mo).",
+      "reason": "Backend canister features are listed as non-goals; adding backend code is not requested for this frontend-only interaction.",
+      "evidence": [
+        "backend/main.mo"
+      ]
+    }
+  ],
+  "confidence": 0.74,
+  "changed_files": [
+    "all_files_summary.json",
+    "backend/main.mo",
+    "frontend-file-summaries.txt",
+    "frontend/index.css",
+    "frontend/index.html",
+    "frontend/src/App.tsx",
+    "frontend/src/hooks/useActor.ts",
+    "frontend/src/hooks/useInternetIdentity.ts",
+    "frontend/src/hooks/useQueries.ts",
+    "frontend/src/index.css",
+    "frontend/src/main.tsx",
+    "frontend/tailwind.config.js",
+    "project_state.json"
+  ]
+}
